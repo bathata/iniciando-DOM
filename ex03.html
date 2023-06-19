@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!--colete do usuário(usando input de data) e altere a cor
+    do "quadrado" dessa data no calendário dinamicamente. por 
+    exemplo, se o usuário escolher 01/10/2022 - o quadrado com
+    o dia 01 deve mudar de cor.-->
+
+    <h1>Calendário roubado da ❀Sam❀[Modelo Dezembro 2022]</h1>
+    <div>
+        <label for="date-input">Selecione uma data:</label>
+        <input type="date" id="date-input">
+        <button onclick="changeColor()">Marcar Dia</button>
+      </div>
+    <table id="calendar">
+        <thead>
+            <tr>
+                <th>Dom</th>
+                <th>Seg</th>
+                <th>Ter</th>
+                <th>Qua</th>
+                <th>Qui</th>
+                <th>Sex</th>
+                <th>Sab</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+
+            </tr>
+
+            <tr>
+                <td>05</td>
+                <td>06</td>
+                <td>07</td>
+                <td>08</td>
+                <td>09</td>
+                <td>10</td>
+                <td>11</td>
+
+
+            </tr>
+
+            <tr>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+            
+            </tr>
+
+            <tr>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+
+
+
+
+            </tr>
+
+            <tr>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <style>
+
+
+        td, th {
+      border: 1px solid rgb(0, 15, 43);
+      width: 50px;
+      height: 30px;
+      text-align:center;                                                    cursor: pointer; 
+    }
+    
+    .selected {
+        text-align: center;
+      background-color: rgb(235, 111, 140);
+    }
+
+    </style>
+
+    <script>
+        function changeColor() {
+      var selectedDate = document.getElementById('date-input').value;
+      var calendar = document.getElementById('calendar');
+      var cells = calendar.getElementsByTagName('td');
+      
+      for (var i = 0; i < cells.length; i++) {
+        var cellDate = cells[i].textContent;
+        if (cellDate === selectedDate.slice(-2)){
+          cells[i].classList.toggle('selected');
+        } else {
+          cells[i].classList.remove('selected');
+        }
+      }
+    }
+    </script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+</body>
+
+</html>
