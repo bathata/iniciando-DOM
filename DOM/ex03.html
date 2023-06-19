@@ -87,34 +87,31 @@
     </style>
 
     <script>
-        function destacar(){
-                console.log("entrei");
-                var dia = document.querySelector("#dia");
-                var calendario = document.querySelector(".calendar");
-                var listaDeNomes = calendario.querySelectorAll("td");
-                var novaLista = [];
-                var td;
-
-                for (var i = 0; i < listaDeNomes.length; i++) {
-    var diaAtual = listaDeNomes[i].textContent;
-    if(dia.value == diaAtual){
-        td = document.createElement("td");
-        var strong = document.createElement("strong");
-        strong.innerText = diaAtual;
-        td.appendChild(strong);
-        novaLista.push(td);
-    }else{
-        td = document.createElement("td");
-        td.innerText = diaAtual;
-        novaLista.push(td);
+        function changeColor() {
+      var selectedDate = document.getElementById('date-input').value;
+      var calendar = document.getElementById('calendar');
+      var cells = calendar.getElementsByTagName('td');
+      
+      for (var i = 0; i < cells.length; i++) {
+        var cellDate = cells[i].textContent;
+        if (cellDate === selectedDate.slice(-2)){
+          cells[i].classList.toggle('selected');
+        } else {
+          cells[i].classList.remove('selected');
+        }
+      }
     }
-}
-                calendario.innerText = "";
-                for (var i = 0; i < novaLista.length; i++){
-                    calendario.appendChild(novaLista[i]);
-                }
-                console.log(novaLista)
-            }
+    </script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 </body>
 </html>
